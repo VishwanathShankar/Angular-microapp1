@@ -1,13 +1,10 @@
-node {
-    stage('Build') {
-        sh 'ls -l'
-    }
-    stage('Test') {
-        sh 'pwd'
-    }
-    if (currentBuild.currentResult == 'SUCCESS') {
-        stage('Deploy') {
-            sh 'date'
+pipeline {
+    agent { docker { image 'node:6.3' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'npm --version'
+            }
         }
     }
 }
