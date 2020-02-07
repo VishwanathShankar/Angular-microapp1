@@ -1,9 +1,14 @@
-node {
-    stage('Example') {
-        if (env.BRANCH_NAME == 'master') {
-            echo 'I only execute on the master branch'
-        } else {
-            echo 'I execute elsewhere'
-        }
+pipeline {
+  stages {
+    stage('HelloWorld') {
+      steps {
+        echo 'Hello World'
+      }
     }
+    stage('git clone') {
+      steps {
+        git clone "ssh://git@mywebsite.com/myrepo.git"
+      }
+    }
+  }
 }
