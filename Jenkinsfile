@@ -1,14 +1,10 @@
 pipeline {
-  stages {
-    stage('HelloWorld') {
-      steps {
-        echo 'Hello World'
-      }
+    agent any
+    stages {
+        stage('Example Build') {
+            steps {
+                sh 'ls -l'
+            }
+        }
     }
-    stage('git clone') {
-      steps {
-        git clone "ssh://git@mywebsite.com/myrepo.git"
-      }
-    }
-  }
 }
